@@ -16,6 +16,11 @@
 
   - [ngRok](https://ngrok.com) - /.ngrok http 8000
 
+## Suscripción a Mensajes (Eventos)
+
+  - messages
+  - messaging_postbacks
+
 ## Créditos
 - [David E Lares S](https://twitter.com/@davidlares3)
 
