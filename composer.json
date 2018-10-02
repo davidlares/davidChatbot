@@ -1,0 +1,10 @@
+{
+    "name": "davidlares/davidfbot",
+    "description": "PHP project for consuming in use FB Messenger chat bot",
+    "require": {
+        "slim/slim": "^3.11",
+        "vlucas/phpdotenv": "^2.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "license": "MIT"
+}
