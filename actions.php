@@ -7,18 +7,15 @@ function handleMessage($sender, $message, $pat){
   $response = "";
   $message = $message['text'];
   if(isset($message)){
-    $response ="{'text': 'You sent: $message, Now send me an image!'}";
+    $response ="You sent: $message";
   }
   callSendAPI($sender,$response, $pat);
 }
 // response messages via send API
 function callSendAPI($sender, $response, $pat){
-
-  $body = "{'recipient': {'id': $sender}, 'message': $response}";
-  // echo $body;
-  $client = new Client([]);
-  $url = "https://graph.facebook.com/v2.6/me/messages?access_token=$pat";
-  $resp = $client->post($url, ['Content-type' => 'application/json'], $body)->send();
+  $body = ["messaging_type" => "RESPONSE", 'recipient' => ['id' => $sender], 'message' => ['text' => $response]];
+  $client = new Client(['timeout' => 2.0, 'base_uri' => 'https://graph.facebook.com/']);
+  $resp = $client->request('POST',"v2.6/me/messages?access_token=$pat",['json' => $body]);
   $data = $resp->getBody()->getContents();
   return $data;
 }
