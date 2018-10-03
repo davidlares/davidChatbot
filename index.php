@@ -15,9 +15,6 @@ $app->get('/', function (Request $request, Response $response, array $args) use 
   if($request->getQueryParam('hub_challenge') !== null){
     $challenge = $request->getQueryParam('hub_challenge');
     $token = $request->getQueryParam('hub_verify_token');
-  } else {
-      // for the regular user client
-      return $response->getBody()->write('Hello from david-chatbot, Server running okay.');
   }
   if($token == getenv('VERIFY_TOKEN')){
     return $response->getBody()->write($challenge);
