@@ -23,7 +23,7 @@ function callSendAPI($sender, $response, $pat, $type){
   } else if($type == 'image'){
     $body = ["messaging_type" => "RESPONSE", 'recipient' => ['id' => $sender], 'message' => $response];
   }
-  echo json_encode($body);
+  // guzzle post client
   $client = new Client(['timeout' => 2.0, 'base_uri' => 'https://graph.facebook.com/']);
   $resp = $client->request('POST',"v2.6/me/messages?access_token=$pat",['json' => $body]);
   $data = $resp->getBody()->getContents();

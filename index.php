@@ -9,15 +9,15 @@ require 'vendor/autoload.php';
 
 $app = new \Slim\App;
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
-
 $pat = getenv('PAGE_ACCESS_TOKEN');
 
 $app->get('/', function (Request $request, Response $response, array $args) use ($pat) {
   if($request->getQueryParam('hub_challenge') !== null){
     $challenge = $request->getQueryParam('hub_challenge');
     $token = $request->getQueryParam('hub_verify_token');
+  } else {
+      // for the regular user client
+      return $response->getBody()->write('Hello from david-chatbot, Server running okay.');
   }
   if($token == getenv('VERIFY_TOKEN')){
     return $response->getBody()->write($challenge);
@@ -37,7 +37,7 @@ $app->post('/', function(Request $request, Response $response, array $args) use 
       }
     }
   } else {
-    return '{"404", "Is not page, is something else"}';
+    // not a suscription page
   }
 });
 
