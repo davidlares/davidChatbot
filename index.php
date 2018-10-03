@@ -33,11 +33,11 @@ $app->post('/', function(Request $request, Response $response, array $args) use 
       if(isset($event['message']) && !empty($event['message'])){
         handleMessage($sender,$event['message'], getenv('PAGE_ACCESS_TOKEN'));
       }else if(isset($event['postback']) && !empty($event['postback'])){
-        // handlePostback($sender, $event['postback'], getenv('PAGE_ACCESS_TOKEN'));
+        handlePostback($sender, $event['postback'], getenv('PAGE_ACCESS_TOKEN'));
       }
     }
   } else {
-    echo "Is not page, is something else";
+    return '{"404", "Is not page, is something else"}';
   }
 });
 
