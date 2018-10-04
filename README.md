@@ -1,6 +1,6 @@
 ## DavidChatbot
 
- DavidChatbot es un desarrollo para demostrar el consunmo de las APIs de FB Messenger para construir un Chatbot e interactuar con el desde Facebook. Próximamente se agregarán mas features bajo una premisa o necesidad comercial establecida.
+ DavidChatbot es un desarrollo para demostrar el consumo de las APIs de FB Messenger para construir un Chatbot e interactuar con el desde Facebook. Próximamente se agregarán mas features bajo una premisa o necesidad comercial establecida.
 
 ## Dependencias
 
